@@ -1,0 +1,5 @@
+C:\Users\PC\source\repos\Ejercicios\Ejercicios\obj\Test\CapaVisual.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\Ejercicios\Ejercicios\obj\Test\Ejercicios.Ejercicio1.resources
+C:\Users\PC\source\repos\Ejercicios\Ejercicios\obj\Test\Ejercicios.Properties.Resources.resources
+C:\Users\PC\source\repos\Ejercicios\Ejercicios\obj\Test\CapaVisual.csproj.GenerateResource.cache
+C:\Users\PC\source\repos\Ejercicios\Ejercicios\obj\Test\CapaVisual.csproj.CoreCompileInputs.cache

@@ -1,0 +1,2 @@
+C:\Users\PC\source\repos\Ejercicios\CapaDatos\obj\Test\CapaDatos.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\Ejercicios\CapaDatos\obj\Test\CapaDatos.csproj.CoreCompileInputs.cache
