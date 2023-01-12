@@ -10,8 +10,9 @@ namespace CapaDatos
 {
     public class ModeloDB
     {
-        MySqlConnection connection = new MySqlConnection();
-        MySqlCommand command = new MySqlCommand();
+        protected MySqlConnection connection = new MySqlConnection();
+        protected MySqlCommand command = new MySqlCommand();
+        protected MySqlDataReader dataReader;
 
         static string server = "localhost";
         static string database = "EjerciciosDB";
@@ -20,13 +21,6 @@ namespace CapaDatos
             "server=" + server +
             ";Database=" + database +
             ";User=" + user;
-
-        MySqlDataReader dataReader;
-        public DataTable dataTable = new DataTable();
-
-
-
-
 
         public void CrearConexion()
         {
@@ -43,37 +37,6 @@ namespace CapaDatos
         {
             connection.Close();
         }
-
-
-
-        public void ListarTablaPersonajes()
-        {
-            CrearConexion();
-            CrearComando();
-            command.CommandText = "Select * from Personajes";
-            dataReader = command.ExecuteReader();
-
-            dataTable.Load(dataReader);
-            CerrarConexion();
-        }
-
-        public void CrearTablaPersonajes()
-        {
-            CrearConexion();
-            CrearComando();
-            command.CommandText = "DROP TABLE IF EXISTS Personajes;" + 
-                "CREATE TABLE Personajes (" + 
-                "id INT (10) AUTO_INCREMENT PRIMARY KEY," +
-                "nombre VARCHAR (50)," +
-                "apellido VARCHAR (50)," +
-                "novela VARCHAR (50)," +
-                "universo VARCHAR(100));";
-            command.ExecuteNonQuery();
-            Console.WriteLine("Personajes creada");
-            CerrarConexion();
-        }
-
-
 
     }
 }

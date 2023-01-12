@@ -12,18 +12,18 @@ namespace CapaLogica
     public class ControladorPersonajes
     {
 
-        ModeloDB modeloDB = new ModeloDB();
+        ModeloPersonajes modeloPersonajes = new ModeloPersonajes();
         public DataTable dataTable = new DataTable();
 
-        public void CrearTablaPersonajes()
+        public void IngresarPersonajes(string nombre, string apellido, string novela, string universo)
         {
-            modeloDB.CrearTablaPersonajes();
+            modeloPersonajes.IngresarPersonajes(nombre, apellido, novela, universo);
         }
 
         public void ListarTablaPersonajes()
         {
-            modeloDB.ListarTablaPersonajes();
-            dataTable = modeloDB.dataTable;
+            modeloPersonajes.ListarTablaPersonajes();
+            dataTable = modeloPersonajes.dataTable;
 
         }
     }

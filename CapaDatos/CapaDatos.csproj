@@ -62,7 +62,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo.cs" />
+    <Compile Include="ModeloPersonajes.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ModeloDB.cs" />
     <Compile Include="Pruebas.cs" />
   </ItemGroup>

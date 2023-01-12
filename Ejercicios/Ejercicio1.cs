@@ -20,10 +20,9 @@ namespace Ejercicios
 
         ControladorPersonajes controladorPersonajes = new ControladorPersonajes();
 
-        private void btnCrearPersonajes_Click(object sender, EventArgs e)
+        private void btnIngresarPersonajes_Click(object sender, EventArgs e)
         {
-            controladorPersonajes.CrearTablaPersonajes();
-
+            controladorPersonajes.IngresarPersonajes(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNovela.Text, txtBoxUniverso.Text);
         }
 
         private void btnListarPersonajes_Click(object sender, EventArgs e)
@@ -32,7 +31,6 @@ namespace Ejercicios
             dataGridViewListaPersonajes.DataSource = controladorPersonajes.dataTable;
 
         }
-
 
         private void Ejercicio1_FormClosing(object sender, FormClosingEventArgs e)
         {
