@@ -32,15 +32,18 @@ namespace CapaDatos
 
         public void IngresarPersonajes(string nombre, string apellido, string novela, string universo)
         {
-            //nombre = nombre;
             CrearConexion();
             CrearComando();
-            //command.CommandText = "INSERT INTO Personajes VALUES (@nombre. @apellido, @novela, @universo);";
-            command.CommandText = "INSERT INTO Personajes VALUES (nombre);";
-            //command.Prepare.AddWithValue("@nombre" = nombre);
-            //command.Prepare();
+            command.CommandText = "INSERT INTO Personajes (nombre, apellido, novela, universo)" + 
+                " VALUES(@nombre, @apellido, @novela, @universo);";
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@apellido", apellido);
+            command.Parameters.AddWithValue("@novela", novela);
+            command.Parameters.AddWithValue("@universo", universo);
+            command.Prepare();
+
             command.ExecuteNonQuery();
-            Console.WriteLine("Personajes creada");
+            Console.WriteLine("Personaje ingresado");
             CerrarConexion();
         }
 

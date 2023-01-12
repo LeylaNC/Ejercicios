@@ -47,6 +47,7 @@
             this.dataGridViewListaPersonajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaPersonajes.Location = new System.Drawing.Point(30, 35);
             this.dataGridViewListaPersonajes.Name = "dataGridViewListaPersonajes";
+            this.dataGridViewListaPersonajes.ReadOnly = true;
             this.dataGridViewListaPersonajes.Size = new System.Drawing.Size(498, 277);
             this.dataGridViewListaPersonajes.TabIndex = 0;
             // 
