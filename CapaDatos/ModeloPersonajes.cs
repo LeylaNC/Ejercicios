@@ -11,6 +11,7 @@ namespace CapaDatos
     public class ModeloPersonajes : ModeloDB
     {
         public DataTable dataTable = new DataTable();
+        public int idPersonaje;
         public string nombre, apellido, novela, universo;
 
         public void TablaPersonajes()
@@ -36,11 +37,11 @@ namespace CapaDatos
             CrearComando();
             command.CommandText = "INSERT INTO Personajes (nombre, apellido, novela, universo)" + 
                 " VALUES(@nombre, @apellido, @novela, @universo);";
+
             command.Parameters.AddWithValue("@nombre", nombre);
             command.Parameters.AddWithValue("@apellido", apellido);
             command.Parameters.AddWithValue("@novela", novela);
             command.Parameters.AddWithValue("@universo", universo);
-            command.Prepare();
 
             command.ExecuteNonQuery();
             Console.WriteLine("Personaje ingresado");
@@ -51,12 +52,28 @@ namespace CapaDatos
         {
             CrearConexion();
             CrearComando();
-            command.CommandText = "Select * from Personajes";
+            command.CommandText = "Select * from Personajes;";
             dataReader = command.ExecuteReader();
-
             dataTable.Load(dataReader);
             CerrarConexion();
         }
 
+        public void BuscarPersonajes(string nombreBusqueda)
+        {
+            CrearConexion();
+            CrearComando();
+            BorrarParametros();
+            command.CommandText = "SELECT * FROM Personajes WHERE nombre = @nombreBusqueda;";
+            command.Parameters.AddWithValue("@nombreBusqueda", nombreBusqueda);
+            dataReader = command.ExecuteReader();
+            dataTable.Clear();
+            dataTable.Load(dataReader);
+            CerrarConexion();
+        }
+
+        public void BorrarParametros()
+        {
+            command.Parameters.Clear();
+        }
     }
 }

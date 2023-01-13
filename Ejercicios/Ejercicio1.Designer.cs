@@ -39,6 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxUniverso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscarPersonajes = new System.Windows.Forms.Button();
+            this.btnEliminarPersonajes = new System.Windows.Forms.Button();
+            this.btnModificarPersonajes = new System.Windows.Forms.Button();
+            this.txtBoxId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaPersonajes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,17 +58,17 @@
             // 
             // btnIngresarPersonajes
             // 
-            this.btnIngresarPersonajes.Location = new System.Drawing.Point(534, 278);
+            this.btnIngresarPersonajes.Location = new System.Drawing.Point(537, 278);
             this.btnIngresarPersonajes.Name = "btnIngresarPersonajes";
             this.btnIngresarPersonajes.Size = new System.Drawing.Size(111, 34);
             this.btnIngresarPersonajes.TabIndex = 1;
-            this.btnIngresarPersonajes.Text = "Ingresar Personajes";
+            this.btnIngresarPersonajes.Text = "Ingresar Personaje";
             this.btnIngresarPersonajes.UseVisualStyleBackColor = true;
             this.btnIngresarPersonajes.Click += new System.EventHandler(this.btnIngresarPersonajes_Click);
             // 
             // btnListarPersonajes
             // 
-            this.btnListarPersonajes.Location = new System.Drawing.Point(677, 278);
+            this.btnListarPersonajes.Location = new System.Drawing.Point(677, 219);
             this.btnListarPersonajes.Name = "btnListarPersonajes";
             this.btnListarPersonajes.Size = new System.Drawing.Size(111, 34);
             this.btnListarPersonajes.TabIndex = 2;
@@ -139,11 +144,65 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Universo";
             // 
+            // btnBuscarPersonajes
+            // 
+            this.btnBuscarPersonajes.Location = new System.Drawing.Point(537, 337);
+            this.btnBuscarPersonajes.Name = "btnBuscarPersonajes";
+            this.btnBuscarPersonajes.Size = new System.Drawing.Size(111, 34);
+            this.btnBuscarPersonajes.TabIndex = 12;
+            this.btnBuscarPersonajes.Text = "Buscar Personajes";
+            this.btnBuscarPersonajes.UseVisualStyleBackColor = true;
+            this.btnBuscarPersonajes.Click += new System.EventHandler(this.btnBuscarPersonajes_Click);
+            // 
+            // btnEliminarPersonajes
+            // 
+            this.btnEliminarPersonajes.Location = new System.Drawing.Point(677, 337);
+            this.btnEliminarPersonajes.Name = "btnEliminarPersonajes";
+            this.btnEliminarPersonajes.Size = new System.Drawing.Size(111, 34);
+            this.btnEliminarPersonajes.TabIndex = 11;
+            this.btnEliminarPersonajes.Text = "Eliminar Personajes";
+            this.btnEliminarPersonajes.UseVisualStyleBackColor = true;
+            this.btnEliminarPersonajes.Click += new System.EventHandler(this.btnEliminarPersonajes_Click);
+            // 
+            // btnModificarPersonajes
+            // 
+            this.btnModificarPersonajes.Enabled = false;
+            this.btnModificarPersonajes.Location = new System.Drawing.Point(677, 278);
+            this.btnModificarPersonajes.Name = "btnModificarPersonajes";
+            this.btnModificarPersonajes.Size = new System.Drawing.Size(111, 34);
+            this.btnModificarPersonajes.TabIndex = 14;
+            this.btnModificarPersonajes.Text = "Modificar Personaje";
+            this.btnModificarPersonajes.UseVisualStyleBackColor = true;
+            this.btnModificarPersonajes.Click += new System.EventHandler(this.btnModificarPersonajes_Click);
+            // 
+            // txtBoxId
+            // 
+            this.txtBoxId.Location = new System.Drawing.Point(559, 223);
+            this.txtBoxId.Name = "txtBoxId";
+            this.txtBoxId.ReadOnly = true;
+            this.txtBoxId.Size = new System.Drawing.Size(45, 20);
+            this.txtBoxId.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(534, 223);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 18);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Id";
+            // 
             // Ejercicio1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtBoxId);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnModificarPersonajes);
+            this.Controls.Add(this.btnBuscarPersonajes);
+            this.Controls.Add(this.btnEliminarPersonajes);
             this.Controls.Add(this.txtBoxUniverso);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBoxNovela);
@@ -158,6 +217,7 @@
             this.Name = "Ejercicio1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Ejercicio1_FormClosing);
+            this.Load += new System.EventHandler(this.Ejercicio1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaPersonajes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,6 +237,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxUniverso;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBuscarPersonajes;
+        private System.Windows.Forms.Button btnEliminarPersonajes;
+        private System.Windows.Forms.Button btnModificarPersonajes;
+        private System.Windows.Forms.TextBox txtBoxId;
+        private System.Windows.Forms.Label label5;
     }
 }
 
