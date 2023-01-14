@@ -23,20 +23,20 @@ namespace Ejercicios
         private void btnIngresarPersonajes_Click(object sender, EventArgs e)
         {
             IngresarPersonaje();
+            LimpiarPagina();
+            ListarPersonajes();
         }
 
         private void btnListarPersonajes_Click(object sender, EventArgs e)
         {
             ListarPersonajes();
-            LimpiarTxtBoxs();
-            DeshabilitarBtnModificar();
+            LimpiarPagina();
         }
 
         private void btnEliminarPersonajes_Click(object sender, EventArgs e)
         {
             EliminarPersonajes();
-            DeshabilitarBtnModificar();
-            LimpiarTxtBoxs();
+            LimpiarPagina();
             ListarPersonajes();
         }
 
@@ -45,14 +45,46 @@ namespace Ejercicios
             BuscarPersonajes();
             CheckSeleccion();
         }
+
         private void btnModificarPersonajes_Click(object sender, EventArgs e)
         {
+            HabilitarTxtBoxs();
+            DeshabilitarBtnModificar();
+            OcultarBtnModificar();
+            HabilitarBtnConfirmarCambios();
+            DeshabilitarBtns();
+        }
+
+        private void btnConfirmarCambios_Click_1(object sender, EventArgs e)
+        {
             ModificarPersonajes();
+            LimpiarPagina();
+            ListarPersonajes();
+        }
+
+        private void Ejercicio1_Load(object sender, EventArgs e)
+        {
+            LimpiarPagina();
         }
 
         private void Ejercicio1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+
+        private void CheckSeleccion()
+        {
+            if (controladorPersonajes.personajeSeleccionado == true)
+            {
+                LlenarTxtBoxs();
+                HabilitarBtnModificar();
+                HabilitarBtnEliminar();
+                DeshabilitarBtnIngresar();
+            }
+            else
+                LimpiarPagina();
+
         }
 
         private void IngresarPersonaje()
@@ -66,34 +98,32 @@ namespace Ejercicios
         }
         private void LimpiarTxtBoxs()
         {
+            txtBoxId.Text = "";
             txtBoxNombre.Text = "";
-            txtBoxNombre.ReadOnly = false;
             txtBoxApellido.Text = "";
-            txtBoxApellido.ReadOnly = false;
             txtBoxNovela.Text = "";
-            txtBoxNovela.ReadOnly = false;
             txtBoxUniverso.Text = "";
-            txtBoxUniverso.ReadOnly = false;
         }
+        private void HabilitarTxtBoxs()
+        {
+            txtBoxNombre.ReadOnly = false;
+            txtBoxApellido.ReadOnly = false;
+            txtBoxNovela.ReadOnly = false;
+            txtBoxUniverso.ReadOnly = false;
+
+        }
+
         private void DeshabilitarBtnModificar()
         {
             btnModificarPersonajes.Enabled = false;
         }
+
         private void BuscarPersonajes()
         {
             controladorPersonajes.BuscarPersonajes(txtBoxNombre.Text);
             dataGridViewListaPersonajes.DataSource = controladorPersonajes.dataTable;
         }
-        private void CheckSeleccion()
-        {
-            if (controladorPersonajes.personajeSeleccionado == true)
-            {
-                LlenarTxtBoxs();
-                HabilitarBtnModificar();
-            }
-            else
-                DeshabilitarBtnModificar();
-        }
+
         private void LlenarTxtBoxs()
         {
             txtBoxId.Text = controladorPersonajes.idPersonaje.ToString();
@@ -108,21 +138,81 @@ namespace Ejercicios
         }
         private void HabilitarBtnModificar()
         {
-                btnModificarPersonajes.Enabled = true;
+            btnModificarPersonajes.Enabled = true;
         }
+        private void MostrarBtnModificar()
+        {
+            btnModificarPersonajes.Visible = true;
+        }
+        private void HabilitarBtnConfirmarCambios()
+        {
+            btnConfirmarCambios.Enabled = true;
+            btnConfirmarCambios.Visible = true;
+        }
+        private void DeshabilitarBtnConfirmarCambios()
+        {
+            btnConfirmarCambios.Enabled = false;
+            btnConfirmarCambios.Visible = false;
+        }
+
+        private void OcultarBtnModificar()
+        {
+            btnModificarPersonajes.Visible = false;
+        }
+
         private void EliminarPersonajes()
         {
-            //controladorPersonajes.EliminarPersonajes(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNovela.Text, txtBoxUniverso.Text);
+            controladorPersonajes.EliminarPersonaje(Convert.ToInt32(txtBoxId.Text));
         }
         private void ModificarPersonajes()
         {
-            //controladorPersonajes.ModificarPersonajes(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNovela.Text, txtBoxUniverso.Text)
+            controladorPersonajes.ModificarPersonajes(Convert.ToInt32(txtBoxId.Text), txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNovela.Text, txtBoxUniverso.Text);
         }
 
-        private void Ejercicio1_Load(object sender, EventArgs e)
+        private void LimpiarPagina()
+        {
+            LimpiarTxtBoxs();
+            HabilitarTxtBoxs();
+            HabilitarBtns();
+            DeshabilitarBtnConfirmarCambios();
+            DeshabilitarBtnModificar();
+            DeshabilitarBtnEliminar();
+            MostrarBtnModificar();
+        }
+
+
+        private void HabilitarBtns()
+        {
+            btnIngresarPersonajes.Enabled = true;
+            btnListarPersonajes.Enabled = true;
+            btnBuscarPersonajes.Enabled = true;
+        }
+        private void DeshabilitarBtns()
+        {
+            DeshabilitarBtnIngresar();
+            btnListarPersonajes.Enabled = false;
+            btnBuscarPersonajes.Enabled = false;
+        }
+
+        private void DeshabilitarBtnIngresar()
+        {
+            btnIngresarPersonajes.Enabled = false;
+        }
+
+        private void DeshabilitarBtnEliminar()
+        {
+            btnEliminarPersonajes.Enabled = false;
+        }
+
+        private void HabilitarBtnEliminar()
+        {
+            btnEliminarPersonajes.Enabled = true;
+        }
+
+        private void btnLimpiarPagina_Click(object sender, EventArgs e)
         {
             ListarPersonajes();
+            LimpiarPagina();
         }
-
     }
 }

@@ -46,5 +46,15 @@ namespace CapaLogica
                 personajeSeleccionado = true;
             }
         }
+
+        public void ModificarPersonajes(int id, string nombre, string apellido, string novela, string universo)
+        {
+            modeloPersonajes.ModificarPersonaje(id, nombre, apellido, novela, universo);
+        }
+
+        public void EliminarPersonaje(int id)
+        {
+            modeloPersonajes.EliminarPersonaje(id);
+        }
     }
 }

@@ -44,6 +44,8 @@
             this.btnModificarPersonajes = new System.Windows.Forms.Button();
             this.txtBoxId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnLimpiarPagina = new System.Windows.Forms.Button();
+            this.btnConfirmarCambios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaPersonajes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,7 +162,7 @@
             this.btnEliminarPersonajes.Name = "btnEliminarPersonajes";
             this.btnEliminarPersonajes.Size = new System.Drawing.Size(111, 34);
             this.btnEliminarPersonajes.TabIndex = 11;
-            this.btnEliminarPersonajes.Text = "Eliminar Personajes";
+            this.btnEliminarPersonajes.Text = "Eliminar Personaje";
             this.btnEliminarPersonajes.UseVisualStyleBackColor = true;
             this.btnEliminarPersonajes.Click += new System.EventHandler(this.btnEliminarPersonajes_Click);
             // 
@@ -193,11 +195,35 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Id";
             // 
+            // btnLimpiarPagina
+            // 
+            this.btnLimpiarPagina.Location = new System.Drawing.Point(30, 318);
+            this.btnLimpiarPagina.Name = "btnLimpiarPagina";
+            this.btnLimpiarPagina.Size = new System.Drawing.Size(92, 24);
+            this.btnLimpiarPagina.TabIndex = 17;
+            this.btnLimpiarPagina.Text = "Limpiar Página";
+            this.btnLimpiarPagina.UseVisualStyleBackColor = true;
+            this.btnLimpiarPagina.Click += new System.EventHandler(this.btnLimpiarPagina_Click);
+            // 
+            // btnConfirmarCambios
+            // 
+            this.btnConfirmarCambios.Enabled = false;
+            this.btnConfirmarCambios.Location = new System.Drawing.Point(677, 278);
+            this.btnConfirmarCambios.Name = "btnConfirmarCambios";
+            this.btnConfirmarCambios.Size = new System.Drawing.Size(111, 34);
+            this.btnConfirmarCambios.TabIndex = 18;
+            this.btnConfirmarCambios.Text = " Confirmar Cambios";
+            this.btnConfirmarCambios.UseVisualStyleBackColor = true;
+            this.btnConfirmarCambios.Visible = false;
+            this.btnConfirmarCambios.Click += new System.EventHandler(this.btnConfirmarCambios_Click_1);
+            // 
             // Ejercicio1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirmarCambios);
+            this.Controls.Add(this.btnLimpiarPagina);
             this.Controls.Add(this.txtBoxId);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnModificarPersonajes);
@@ -242,6 +268,8 @@
         private System.Windows.Forms.Button btnModificarPersonajes;
         private System.Windows.Forms.TextBox txtBoxId;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnLimpiarPagina;
+        private System.Windows.Forms.Button btnConfirmarCambios;
     }
 }
 
