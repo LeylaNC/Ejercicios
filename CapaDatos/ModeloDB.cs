@@ -17,15 +17,28 @@ namespace CapaDatos
         static string server = "localhost";
         static string database = "EjerciciosDB";
         static string user = "root";
-        public static string connectionString = 
+        public static string connectionString =  
             "server=" + server +
             ";Database=" + database +
-            ";User=" + user;
+            ";User=" + user + ";";
 
         public void CrearConexion()
         {
-            connection.ConnectionString = connectionString;
-            connection.Open();
+            try
+            {
+                connection.ConnectionString = connectionString;
+                connection.Open();
+            }
+            //Throw (MySqlException mySqlEx)
+            //{
+                //MessageBox.Show("")
+                //Console.WriteLine("MySql error" + mySqlEx.Message);
+            //}
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error" + ex.Message);
+            }
+
         }
 
         public void CrearComando()
