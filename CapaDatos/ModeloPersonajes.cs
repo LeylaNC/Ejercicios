@@ -11,43 +11,29 @@ namespace CapaDatos
     public class ModeloPersonajes : ModeloDB
     {
         public DataTable dataTable = new DataTable();
-        public int idPersonaje;
-        public string nombre, apellido, novela, universo;
-
-        public void TablaPersonajes()
-        {
-            CrearConexion();
-            CrearComando();
-            command.CommandText = "DROP TABLE IF EXISTS Personajes;" +
-                "CREATE TABLE Personajes (" +
-                "id INT (10) AUTO_INCREMENT PRIMARY KEY," +
-                "nombre VARCHAR (50)," +
-                "apellido VARCHAR (50)," +
-                "novela VARCHAR (50)," +
-                "universo VARCHAR(100));";
-            command.ExecuteNonQuery();
-            Console.WriteLine("Personajes creada");
-            CerrarConexion();
-        }
-
 
         public void IngresarPersonajes(string nombre, string apellido, string novela, string universo)
         {
             CrearConexion();
             CrearComando();
             CrearParametros();
-            command.CommandText = "INSERT INTO Personajes (nombre, apellido, novela, universo)" + 
-                " VALUES(@nombre, @apellido, @novela, @universo);";
+            try
+            {
+                command.CommandText = "INSERT INTO Personajes (nombre, apellido, novela, universo)" +
+                    " VALUES(@nombre, @apellido, @novela, @universo);";
 
-            command.Parameters["@nombre"].Value = nombre;
-            command.Parameters["@apellido"].Value = apellido;
-            command.Parameters["@novela"].Value = novela;
-            command.Parameters["@universo"].Value = universo;
-
-
-            command.ExecuteNonQuery();
-            Console.WriteLine("Personaje ingresado");
-            CerrarConexion();
+                command.Parameters["@nombre"].Value = nombre;
+                command.Parameters["@apellido"].Value = apellido;
+                command.Parameters["@novela"].Value = novela;
+                command.Parameters["@universo"].Value = universo;
+            
+                command.ExecuteNonQuery();
+                Console.WriteLine("Personaje ingresado");
+            }
+            finally
+            {
+                CerrarConexion();
+            }
         }
 
         public void ListarTablaPersonajes()
